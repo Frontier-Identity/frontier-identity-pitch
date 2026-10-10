@@ -1,3 +1,5 @@
+![Frontier Identity](assets/banner.png)
+
 # Frontier Identity företagspitch
 
 En presentation i 13 bilder med tidsatt talmanus för 15 minuter. Följer organisationens grafiska profil Horizon v1.
