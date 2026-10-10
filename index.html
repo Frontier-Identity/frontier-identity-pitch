@@ -34,7 +34,7 @@
     @container (max-width:620px){#frontier-pitch .stage{padding:28px 26px;min-height:490px}#frontier-pitch .brand{margin-bottom:28px;font-size:12px;letter-spacing:1px}#frontier-pitch .twocol{gap:26px}#frontier-pitch .row{grid-template-columns:135px 1fr;gap:16px}#frontier-pitch .row p,#frontier-pitch .row b{font-size:18px}#frontier-pitch .hero{grid-template-columns:1fr}#frontier-pitch .hero svg{display:none}#frontier-pitch h2{letter-spacing:-1px}#frontier-pitch .footer{margin-top:32px}}
     @container (max-width:440px){#frontier-pitch .twocol{grid-template-columns:1fr;gap:28px}#frontier-pitch .stage{padding:24px 22px;min-height:520px}#frontier-pitch .row{grid-template-columns:1fr;gap:5px}#frontier-pitch .num{font-size:42px;margin-bottom:10px}#frontier-pitch .small{font-size:14px}#frontier-pitch .brand{font-size:11px}#frontier-pitch .footer{font-size:11px}#frontier-pitch .control-status{width:100%;margin-left:0}}
   </style>
-  <link rel="stylesheet" href="style.css?v=stable-v3">
+  <link rel="stylesheet" href="style.css?v=stable-v4">
   <div class="stage">
     <div class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true"><path fill="#FF6B21" d="M124 116h264v64H124z"/><path fill="#F4F5F6" d="M124 224h200v64H124zM124 332h64v64h-64z"/></svg><span>FRONTIER <span class="orange">IDENTITY</span></span></div>
     <section class="slide active cover" data-title="Frontier Identity" data-seconds="45" aria-label="Bild 1 Frontier Identity">
@@ -105,7 +105,7 @@
     <div class="footer"><span>Frontier Identity</span><span class="slide-count">01 / 13</span></div>
   </div>
   <div class="progress-track" aria-hidden="true"><div class="progress-fill"></div></div>
-  <div class="controls" aria-label="Presentationskontroller"><button type="button" class="btn" data-action="prev" aria-label="Föregående bild">Föregående</button><button type="button" class="btn btn-primary" data-action="next" aria-label="Nästa bild">Nästa</button><label class="select-wrap"><span class="sr-only">Välj presentationsbild</span><select class="form-select" aria-label="Välj presentationsbild"></select></label><button type="button" class="btn" data-action="fullscreen">Helskärm</button><span class="control-status" aria-live="polite">00:00–00:45</span></div>
+  <div class="controls" aria-label="Presentationskontroller"><button type="button" class="btn" data-action="prev" aria-label="Föregående bild">Föregående</button><button type="button" class="btn btn-primary" data-action="next" aria-label="Nästa bild">Nästa</button><label class="select-wrap"><span class="sr-only">Välj presentationsbild</span><select class="form-select" aria-label="Välj presentationsbild"></select></label><button type="button" class="btn" data-action="fullscreen">Presentera</button><span class="control-status" aria-live="polite">00:00–00:45</span></div>
   <script>
     (()=>{
       const root=document.getElementById('frontier-pitch');
@@ -114,7 +114,11 @@
       const prev=root.querySelector('[data-action="prev"]');
       const next=root.querySelector('[data-action="next"]');
       let index=0;
-      root.querySelector('[data-action="fullscreen"]').addEventListener("click",async()=>{if(document.fullscreenElement){await document.exitFullscreen()}else{await document.documentElement.requestFullscreen().catch(()=>{})}});
+      const presentationButton=root.querySelector('[data-action="fullscreen"]');
+      function presentationMode(on){document.body.classList.toggle('presenting',on);presentationButton.textContent=on?'Avsluta':'Presentera';presentationButton.setAttribute('aria-pressed',String(on));}
+      presentationButton.setAttribute('aria-pressed','false');
+      presentationButton.addEventListener('click',()=>presentationMode(!document.body.classList.contains('presenting')));
+      document.addEventListener('keydown',e=>{if(e.key==='Escape')presentationMode(false)});
       const times=slides.map(s=>Number(s.dataset.seconds));
       const fmt=n=>`${Math.floor(n/60).toString().padStart(2,'0')}:${(n%60).toString().padStart(2,'0')}`;
       slides.forEach((s,i)=>{const option=document.createElement('option');option.value=String(i);option.textContent=`${String(i+1).padStart(2,'0')}  ${s.dataset.title}`;select.appendChild(option)});
