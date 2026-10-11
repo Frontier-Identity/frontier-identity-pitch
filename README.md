@@ -1,9 +1,11 @@
 ![Frontier Identity](assets/banner.png)
 
-# Frontier Identity företagspitch
+# Frontier Identity - tidigare webbpitch
 
-En presentation i 13 bilder med tidsatt talmanus för 15 minuter. Följer organisationens grafiska profil Horizon Modular v2.
+Status: HISTORISKT KÄLLMATERIAL. Ersatt av PDF-presentationen 2026-10-11.
 
-[Öppna pitchen](https://frontier-identity.github.io/frontier-identity-pitch/)
+GitHub Pages är avstängt och publiceringskälla är `None`. Den tidigare publiceringsadressen visar 404. Återpublicera inte automatiskt.
 
-GitHub Pages publicerar direkt från main. Inga externa skript, typsnitt eller spårning. Piltangenter och knappar byter bild. Talmanuset finns på sidan och i talmanus.md.
+Detta repository bevarar den tidigare presentationen i 13 bilder, dess talmanus och Git-historik. Den är inte den aktuella investerarpresentationen.
+
+Den aktuella presentationen är PDF:en `output/pdf/frontier-identity-investerarpresentation.pdf` i Frontier Identity-arbetsytan. Namn, domän, tre detaljnivåer och grafisk profil ingår där. Profilens gemensamma källa är [Horizon-guiden](https://github.com/Frontier-Identity/.github/blob/main/brand/README.md).
