@@ -2,7 +2,7 @@
 
 # Frontier Identity företagspitch
 
-En presentation i 13 bilder med tidsatt talmanus för 15 minuter. Följer organisationens grafiska profil Horizon v1.
+En presentation i 13 bilder med tidsatt talmanus för 15 minuter. Följer organisationens grafiska profil Horizon Modular v2.
 
 [Öppna pitchen](https://frontier-identity.github.io/frontier-identity-pitch/)
 
